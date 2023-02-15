@@ -39,11 +39,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/linked-list
-
-  // npm
-  npm install @amaui/linked-list
 ```
 
 ### Use cases
