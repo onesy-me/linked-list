@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import AmauiLinkedList from '../src';
 
-group('@amaui/linked-list', () => {
+group('AmauiLinkedList', () => {
 
   to('AmauiLinkedList', async () => {
     const value = new AmauiLinkedList();

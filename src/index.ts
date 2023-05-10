@@ -1,1 +1,1 @@
-export { default } from './amaui-linked-list';
+export { default } from './AmauiLinkedList';
