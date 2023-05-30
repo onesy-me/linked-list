@@ -45,13 +45,11 @@ export default class AmauiLinkedList {
     let item = this.main;
 
     do {
-      response.push(item.value);
+      if (item?.value !== undefined) response.push(item.value);
 
-      item = item.next;
-
-      if (!item.next) response.push(item.value);
+      item = item?.next;
     }
-    while (item?.next);
+    while (item?.value !== undefined);
 
     return response;
   }
@@ -157,10 +155,10 @@ export default class AmauiLinkedList {
 
     if (this.main) {
       let previous = this.main;
-      let item = this.main.next;
+      let item = this.main?.next;
       let element: AmauiNode;
 
-      while (!element && item.next) {
+      while (!element && item?.next) {
         if (item.value === value) {
           element = item;
 
@@ -168,10 +166,10 @@ export default class AmauiLinkedList {
         }
 
         previous = item;
-        item = item.next;
+        item = item?.next;
       }
 
-      previous.next = element.next;
+      previous.next = element?.next;
 
       this.length--;
     }
@@ -192,14 +190,14 @@ export default class AmauiLinkedList {
 
     if (this.main) {
       let previous = this.main;
-      let item = this.main.next;
+      let item = this.main?.next;
 
-      while (item.next) {
+      while (item?.next) {
         previous = item;
-        item = item.next;
+        item = item?.next;
       }
 
-      delete previous.next;
+      if (previous) delete previous.next;
 
       this.length--;
     }
@@ -208,15 +206,17 @@ export default class AmauiLinkedList {
   }
 
   public removeAtIndex(value: number): AmauiLinkedList {
+    if (value < 0 || value > this.length - 1) return;
+
     if (value === 0) return this.removeFirst();
 
     if (this.main) {
       let previous = this.main;
-      let item = this.main.next;
+      let item = this.main?.next;
       let index = 0;
       let element: AmauiNode;
 
-      while (!element && item.next) {
+      while (!element && item?.next) {
         index++;
 
         if (index === value) {
@@ -226,7 +226,7 @@ export default class AmauiLinkedList {
         }
 
         previous = item;
-        item = item.next;
+        item = item?.next;
       }
 
       previous.next = element?.next;
@@ -238,6 +238,8 @@ export default class AmauiLinkedList {
   }
 
   public find(value: number): AmauiNode {
+    if (value < 0 || value > this.length - 1) return;
+
     if (this.main) {
       let item = this.main;
       let index = 0;

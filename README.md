@@ -59,10 +59,10 @@
   // Add values
   amauiLinkedList.add(1).add(4);
 
-  amauiStack.first;
+  amauiLinkedList.first;
   // 1
 
-  amauiStack.last;
+  amauiLinkedList.last;
   // 4
 
   const value = amauiLinkedList.search(4);
@@ -70,10 +70,10 @@
 
   amauiLinkedList.remove(1);
 
-  amauiStack.first;
+  amauiLinkedList.first;
   // 4
 
-  amauiStack.length;
+  amauiLinkedList.length;
   // 1
 ```
 
