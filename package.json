@@ -2,7 +2,7 @@
   "name": "@onesy/linked-list",
   "version": "1.0.0",
   "description": "Linked list",
-  "repository": "https://github.com/onesy-org/onesy-linked-list.git",
+  "repository": "https://github.com/onesy-me/linked-list.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
