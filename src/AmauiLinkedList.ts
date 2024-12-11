@@ -1,35 +1,35 @@
-import { TMethod } from '@amaui/models';
+import { TMethod } from '@onesy/models';
 
-export interface IAmauiLinkedListNode {
+export interface IOnesyLinkedListNode {
   value: any;
-  previous?: IAmauiLinkedListNode;
-  next?: IAmauiLinkedListNode;
+  previous?: IOnesyLinkedListNode;
+  next?: IOnesyLinkedListNode;
 }
 
-export class AmauiNode {
+export class OnesyNode {
 
   public constructor(
     public value: any,
-    public next?: IAmauiLinkedListNode,
-    public previous?: IAmauiLinkedListNode
+    public next?: IOnesyLinkedListNode,
+    public previous?: IOnesyLinkedListNode
   ) { }
 
 }
 
-export default class AmauiLinkedList {
+export default class OnesyLinkedList {
   public length = 0;
 
   public constructor(
-    public main?: IAmauiLinkedListNode
+    public main?: IOnesyLinkedListNode
   ) {
 
   }
 
   public get empty(): boolean { return this.length === 0; }
 
-  public get first(): IAmauiLinkedListNode { return this.main; }
+  public get first(): IOnesyLinkedListNode { return this.main; }
 
-  public get last(): IAmauiLinkedListNode {
+  public get last(): IOnesyLinkedListNode {
     if (!this.main) return;
 
     let element = this.main;
@@ -58,8 +58,8 @@ export default class AmauiLinkedList {
 
   public forEach(method: TMethod): void { return this.array.forEach(method); }
 
-  public add(value: any): AmauiLinkedList {
-    const element = new AmauiNode(value);
+  public add(value: any): OnesyLinkedList {
+    const element = new OnesyNode(value);
 
     if (!this.main) this.main = element;
     else {
@@ -73,8 +73,8 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public addAtStart(value: any): AmauiLinkedList {
-    const element = new AmauiNode(value);
+  public addAtStart(value: any): OnesyLinkedList {
+    const element = new OnesyNode(value);
 
     if (!this.first) this.main = element;
     else {
@@ -93,8 +93,8 @@ export default class AmauiLinkedList {
   // alias
   public addAtEnd = this.add;
 
-  public addAfter(value: any, index: number): AmauiLinkedList {
-    const element = new AmauiNode(value);
+  public addAfter(value: any, index: number): OnesyLinkedList {
+    const element = new OnesyNode(value);
 
     if (!this.main) this.main = element;
     else {
@@ -112,8 +112,8 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public addBefore(value: any, index: number): AmauiLinkedList {
-    const element = new AmauiNode(value);
+  public addBefore(value: any, index: number): OnesyLinkedList {
+    const element = new OnesyNode(value);
 
     if (!this.main) this.main = element;
     else {
@@ -134,7 +134,7 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public update(previousValue: any, value: any): AmauiLinkedList {
+  public update(previousValue: any, value: any): OnesyLinkedList {
     const element = this.findValue(previousValue);
 
     if (element) element.value = value;
@@ -142,7 +142,7 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public updateAtIndex(value: any, index: number): AmauiLinkedList {
+  public updateAtIndex(value: any, index: number): OnesyLinkedList {
     const element = this.find(index);
 
     if (element) element.value = value;
@@ -150,13 +150,13 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public remove(value: any): AmauiLinkedList {
+  public remove(value: any): OnesyLinkedList {
     if (this.length === 1 && this.main.value === value) return this.clear();
 
     if (this.main) {
       let previous = this.main;
       let item = this.main?.next;
-      let element: AmauiNode;
+      let element: OnesyNode;
 
       while (!element && item?.next) {
         if (item.value === value) {
@@ -177,7 +177,7 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public removeFirst(): AmauiLinkedList {
+  public removeFirst(): OnesyLinkedList {
     if (this.length <= 1) return this.clear();
 
     this.main = this.main.next;
@@ -185,7 +185,7 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public removeLast(): AmauiLinkedList {
+  public removeLast(): OnesyLinkedList {
     if (this.length <= 1) return this.clear();
 
     if (this.main) {
@@ -205,7 +205,7 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public removeAtIndex(value: number): AmauiLinkedList {
+  public removeAtIndex(value: number): OnesyLinkedList {
     if (value < 0 || value > this.length - 1) return;
 
     if (value === 0) return this.removeFirst();
@@ -214,7 +214,7 @@ export default class AmauiLinkedList {
       let previous = this.main;
       let item = this.main?.next;
       let index = 0;
-      let element: AmauiNode;
+      let element: OnesyNode;
 
       while (!element && item?.next) {
         index++;
@@ -237,13 +237,13 @@ export default class AmauiLinkedList {
     return this;
   }
 
-  public find(value: number): AmauiNode {
+  public find(value: number): OnesyNode {
     if (value < 0 || value > this.length - 1) return;
 
     if (this.main) {
       let item = this.main;
       let index = 0;
-      let element: AmauiNode;
+      let element: OnesyNode;
 
       if (index === value) element = item;
 
@@ -259,10 +259,10 @@ export default class AmauiLinkedList {
     }
   }
 
-  public findValue(value: any): AmauiNode {
+  public findValue(value: any): OnesyNode {
     if (this.main) {
       let item = this.main;
-      let element: AmauiNode;
+      let element: OnesyNode;
 
       while (!element && item.next) {
         if (item.value === value) element = item;
@@ -281,7 +281,7 @@ export default class AmauiLinkedList {
   public indexOf(value: any): number {
     let index = 0;
     let item = this.main;
-    let element: AmauiNode;
+    let element: OnesyNode;
 
     if (value === this.main.value) return 0;
 
@@ -304,7 +304,7 @@ export default class AmauiLinkedList {
     return !!element;
   }
 
-  public clear(): AmauiLinkedList {
+  public clear(): OnesyLinkedList {
     delete this.main;
 
     this.length = 0;

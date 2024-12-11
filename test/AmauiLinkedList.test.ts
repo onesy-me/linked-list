@@ -1,19 +1,19 @@
 /* tslint:disable: no-shadowed-variable */
-import { assert } from '@amaui/test';
+import { assert } from '@onesy/test';
 
 import { evaluate } from '../utils/js/test/utils';
 
-import AmauiLinkedList from '../src';
+import OnesyLinkedList from '../src';
 
-group('AmauiLinkedList', () => {
+group('OnesyLinkedList', () => {
 
-  to('AmauiLinkedList', async () => {
-    const value = new AmauiLinkedList();
+  to('OnesyLinkedList', async () => {
+    const value = new OnesyLinkedList();
 
     value.add(14);
 
     const valueBrowsers = await evaluate((window: any) => {
-      const value = new window.AmauiLinkedList();
+      const value = new window.OnesyLinkedList();
 
       value.add(14);
 
@@ -25,13 +25,13 @@ group('AmauiLinkedList', () => {
     values.forEach(value => assert(value).eql([14, 1]));
   });
 
-  group('amauiLinkedList', async () => {
+  group('onesyLinkedList', async () => {
 
     to('empty', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         return [value.empty];
       });
@@ -42,12 +42,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('first', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -60,12 +60,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('last', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -78,12 +78,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('array', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -96,14 +96,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('map', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueMap = value.map(item => item + 1);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -118,7 +118,7 @@ group('AmauiLinkedList', () => {
     });
 
     to('forEach', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
@@ -127,7 +127,7 @@ group('AmauiLinkedList', () => {
       value.forEach(item => valueForEach.push(item));
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -144,12 +144,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('add', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -162,14 +162,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('addAtStart', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.addAtStart(114);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -184,14 +184,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('addAtEnd', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.addAtEnd(114);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -206,14 +206,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('addAfter', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.addAfter(114, 1);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -228,14 +228,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('addBefore', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.addBefore(114, 1);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -250,14 +250,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('update', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.update(4, 114);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -272,14 +272,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('updateAtIndex', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.updateAtIndex(114, 1);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -294,14 +294,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('remove', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.remove(4);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -316,14 +316,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('removeFirst', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.removeFirst();
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -338,14 +338,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('removeLast', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.removeLast();
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -360,14 +360,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('removeAtIndex', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.removeAtIndex(2);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -382,12 +382,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('find', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -400,12 +400,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('findValue', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -418,12 +418,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('search', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -436,12 +436,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('includes', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -454,12 +454,12 @@ group('AmauiLinkedList', () => {
     });
 
     to('indexOf', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
@@ -472,14 +472,14 @@ group('AmauiLinkedList', () => {
     });
 
     to('clear', async () => {
-      const value = new AmauiLinkedList();
+      const value = new OnesyLinkedList();
 
       value.add(1).add(4).add(14);
 
       value.clear();
 
       const valueBrowsers = await evaluate((window: any) => {
-        const value = new window.AmauiLinkedList();
+        const value = new window.OnesyLinkedList();
 
         value.add(1).add(4).add(14);
 
