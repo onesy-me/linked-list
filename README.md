@@ -4,17 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='onesy logo' />
+    <img width='auto' height='84' src='https://raw.githubusercontent.com/onesy-me/onesy/refs/heads/main/utils/images/logo.png' alt='onesy logo' />
   </a>
 </p>
 
-<h1 align='center'>onesy Linked list</h1>
-
-<p align='center'>
-  Linked list
-</p>
-
-<br />
+<h1 align='center'>onesy Linked List</h1>
 
 <h3 align='center'>
   <sub>MIT license&nbsp;&nbsp;&nbsp;&nbsp;</sub>
